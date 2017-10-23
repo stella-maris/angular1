@@ -19,11 +19,11 @@ maryApp.controller('MainController', ['$scope', function($scope) {
 //        $scope.toDoItem = input;
 //    }
 //      Instantiate empty array outside of update function so that all items are added
-        var items = [];
-        $scope.update = function(input) {
+    var items = [];
+    $scope.update = function(input) {
         var item  = input;
         items.push(item);
-            console.log(items);
+//            console.log(items);
         $scope.toDoItem = items;
     }
 }]);
