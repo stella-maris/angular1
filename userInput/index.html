@@ -20,10 +20,17 @@
                 </tr>
             </table>
             <hr>
-            
-            <h2 ng-bind="secondTitle"></h2>
             <input type="text" ng-model="instantUpdate">
             <p ng-bind="instantUpdate"></p>
+            <br>
+            <input type="text" ng-model="simpleUpdate">
+            <button ng-click="updateSimple(simpleUpdate)">Update</button>
+            <p ng-bind="simpleUpdatePrinted"></p>
+<!--            Add a remove/delete button-->
+            <button ng-click="delete()">Delete</button>
+            <hr>
+            
+            <h2 ng-bind="secondTitle"></h2>
 <!--
             3 steps: 
             input = ng-model
