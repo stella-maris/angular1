@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular 1 Sorting Exercise</title>
+    </head>
+    <body ng-app="maryApp">
+        <div ng-controller="MainController">
+            <h1 ng-bind="title"></h1>
+            <!--Provide a filter to sort-->
+            <select ng-model="orderProp">
+                <option value="suit">Suit</option>
+                <option value="numOrd">Number</option>
+            </select>
+            <table>
+                <tr><th>Number</th><th>Suit</th></tr>
+                <!-- Populate table row with each object in the cards model. orderBy binds to ng-model -->
+                <tr ng-repeat="card in cards | orderBy:orderProp ">
+                    <td ng-bind ="card.number"></td>
+                    <td ng-bind ="card.suit"></td>
+                </tr>
+            </table>
+            <!--Unordered list specifies order by suit-->
+            <ul>
+                <li ng-repeat="card in cards | orderBy:'suit'">
+                    {{card.number}} - {{card.suit}}
+                </li>
+            </ul>
+        </div>
+        <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+        <script src="js/controllers.js"></script>
+    </body>
+</html>

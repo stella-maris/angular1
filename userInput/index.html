@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular 1 User Input</title>
+    </head>
+    <body ng-app="maryApp">
+        <div ng-controller="MainController">
+            <h1 ng-bind="title"></h1>
+            <!--Provide a filter to sort-->
+            <select ng-model="orderProp">
+                <option value="suit">Suit</option>
+                <option value="numOrd">Number</option>
+            </select>
+            <table>
+                <tr><th>Number</th><th>Suit</th></tr>
+                <!-- Populate table row with each object in the cards model. orderBy binds to ng-model -->
+                <tr ng-repeat="card in cards | orderBy:orderProp ">
+                    <td ng-bind ="card.number"></td>
+                    <td ng-bind ="card.suit"></td>
+                </tr>
+            </table>
+            <hr>
+            
+            <h2 ng-bind="secondTitle"></h2>
+            <input type="text" ng-model="instantUpdate">
+            <p ng-bind="instantUpdate"></p>
+<!--
+            3 steps: 
+            input = ng-model
+            output = ng-bind
+            model = controllers.js 
+-->
+           <input type="text" ng-model="toDo">
+           <ul>
+               <li ng-repeat="item in toDoItem">{{item}}</li>
+           </ul>
+           <!--
+               To save the to-do item:
+               1. Create button with ng-click directive
+               2. Add function to controllers.js
+-->
+            <button ng-click="update(toDo)">Update</button>
+        </div>
+        <script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+        <script src="js/controllers.js"></script>
+    </body>
+</html>
